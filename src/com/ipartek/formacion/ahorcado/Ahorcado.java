@@ -1,4 +1,4 @@
-package ahorcado;
+package com.ipartek.formacion.ahorcado;
 
 import java.util.Scanner;
 
