@@ -1,6 +1,5 @@
 package com.ipartek.formacion.ahorcado;
 
-import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -11,16 +10,18 @@ import java.util.Scanner;
  *
  */
 
-public class AhorcadoPalabraRandom {
+public class AhorcadoDosJugadores {
 
 	public static void main(String[] args) {
 
 		final int INTENTOS_TOTALES = 6;
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Jugador numero 1, indica la palabra con la que jugar:");
+		String sPalabra = sc.nextLine();
+		char[] palabra = convertirAChar(sPalabra);
 		int aciertos = 0;
 		int fallos = 0;
 		char letraActual;
-		char[] palabra = elegirPalabra();
 		char[] palabraSolucion = new char[palabra.length];
 		boolean cambios;
 
@@ -40,7 +41,7 @@ public class AhorcadoPalabraRandom {
 
 			letraActual = sc.nextLine().trim().toLowerCase().charAt(0);
 			for (int i = 0; i < palabraSolucion.length; i++) {
-				if (palabra[i] == letraActual && palabraSolucion[i] != letraActual) {
+				if (palabra[i] == letraActual) {
 					palabraSolucion[i] = letraActual;
 					cambios = true;
 					aciertos++;
@@ -72,6 +73,17 @@ public class AhorcadoPalabraRandom {
 
 		sc.close();
 
+	}
+
+	private static char[] convertirAChar(String sPalabra) {
+		
+		char[] letras;
+        letras = new char[sPalabra.length()];
+        for(int i = 0; i < sPalabra.length(); i++){
+            letras[i] = sPalabra.charAt(i);
+        }
+        return letras;
+		
 	}
 
 	private static void pintarAhorcado(int fallos) {
@@ -180,20 +192,6 @@ public class AhorcadoPalabraRandom {
 			break;
 		}
 
-	}
-	
-	private static char[] elegirPalabra() {
-		
-
-		char[] arraypalabras[] = new char[3][1];
-		arraypalabras[0] = new char[]{ 'v', 'i', 'e', 'r', 'n', 'e', 's' };
-		arraypalabras[1] = new char[]{ 'p', 'a', 'i', 's' };
-		arraypalabras[2] = new char[]{ 'e', 'x', 't', 'r', 'a', 'n', 'j', 'e', 'r','o' };
-		Random rn = new Random();
-		int numPalabra = rn.nextInt(3);
-		char[] palabra = arraypalabras[numPalabra];
-		
-		return palabra;
 	}
 
 }
