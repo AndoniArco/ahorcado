@@ -75,17 +75,6 @@ public class AhorcadoDosJugadores {
 
 	}
 
-	private static char[] convertirAChar(String sPalabra) {
-		
-		char[] letras;
-        letras = new char[sPalabra.length()];
-        for(int i = 0; i < sPalabra.length(); i++){
-            letras[i] = sPalabra.charAt(i);
-        }
-        return letras;
-		
-	}
-
 	private static void pintarAhorcado(int fallos) {
 
 		switch (fallos) {
@@ -192,6 +181,21 @@ public class AhorcadoDosJugadores {
 			break;
 		}
 
+	}
+	/**
+	 * Convierte un string en un array de char.
+	 * @param sPalabra String que convertiremos en char[] haciendo uso de cada letra
+	 * @return char[] 
+	 */
+	private static char[] convertirAChar(String sPalabra) {
+		
+		char[] letras;
+        letras = new char[sPalabra.length()];
+        for(int i = 0; i < sPalabra.length(); i++){
+            letras[i] = sPalabra.charAt(i);
+        }
+        return letras;
+		
 	}
 
 }
