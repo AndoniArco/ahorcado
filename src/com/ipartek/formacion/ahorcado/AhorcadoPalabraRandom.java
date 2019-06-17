@@ -14,7 +14,6 @@ import java.util.Scanner;
 public class AhorcadoPalabraRandom {
 
 	public static void main(String[] args) {
-
 		
 		final int INTENTOS_TOTALES = 6;
 		Scanner sc = new Scanner(System.in);
