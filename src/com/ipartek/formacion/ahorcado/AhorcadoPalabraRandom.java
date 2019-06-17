@@ -15,6 +15,8 @@ public class AhorcadoPalabraRandom {
 
 	public static void main(String[] args) {
 
+		//vamos a ver si peta ahora
+		
 		final int INTENTOS_TOTALES = 6;
 		Scanner sc = new Scanner(System.in);
 		int aciertos = 0;
