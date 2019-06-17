@@ -11,6 +11,12 @@ import java.util.Scanner;
 
 public class Ejercicio4 {
 
+	/**
+	 * Pedimos al usuario que nos introduzca los datos del tren por teclado y creamos el tren
+	 * A posteriori mostramos toda información acerca de el, si está lleno o no, si está en circulacion o no 
+	 * @param args
+	 */
+	
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);

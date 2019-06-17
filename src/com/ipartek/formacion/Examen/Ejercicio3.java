@@ -4,6 +4,8 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
+ * Se va a solicitar 10 numeros enteros por teclado y se guardan en un array. Se
+ * muestran cuantos son multiplos de 7 su media aritmetica
  * 
  * @author Curso
  *
@@ -41,13 +43,13 @@ public class Ejercicio3 {
 
 		for (int i = 0; i < pDatos.length; i++) {
 			if (pDatos[i] % 7 == 0 && pDatos[i] != 0) {
-				System.out.println("El numero" + pDatos[i]+" es multiplo de 7");
+				System.out.println("El numero" + pDatos[i] + " es multiplo de 7");
 				contador++;
 			}
 		}
 
 		System.out.println("El numero de multiplos de 7 en el array es: " + contador);
-		
+
 	}
 
 	private static void obtenerMedia(int[] pDatos) {
@@ -57,7 +59,7 @@ public class Ejercicio3 {
 		for (int i = 0; i < pDatos.length; i++) {
 			media = media + pDatos[i];
 		}
-		
+
 		DecimalFormat df = new DecimalFormat("#.00");
 		media = media / pDatos.length;
 

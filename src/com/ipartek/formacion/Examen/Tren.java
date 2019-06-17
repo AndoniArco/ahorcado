@@ -35,6 +35,13 @@ public class Tren {
 		return anosActivos;
 	}
 
+	//metodos personalizados
+	
+	/**
+	 * Segun la casuistica vemos si el tren esta totalmente ocupado o no
+	 * @return boolean true o false
+	 */
+	
 	public boolean trenLleno() {
 
 		boolean lleno = false;
@@ -46,6 +53,10 @@ public class Tren {
 		return lleno;
 	}
 
+	/**
+	 * Segun la casuistica vemos si el tren sigue en circulacion o por el contrario ya no.
+	 */
+	
 	public void demasiadoViejo() {
 
 		if (this.anosActivos >= 40) {
