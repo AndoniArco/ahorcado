@@ -42,15 +42,15 @@ public class Ejercicio1 {
 
 					System.out.println("El boxeador pertenece a la categoria Peso Mosca");
 
-				} else if (pesoBoxeador > PESO_MOSCA && pesoBoxeador <= PESO_PLUMA) {
+				} else if (pesoBoxeador <= PESO_PLUMA) {
 
 					System.out.println("El boxeador pertenece a la categoria Peso Pluma");
 
-				} else if (pesoBoxeador > PESO_PLUMA && pesoBoxeador <= PESO_LIGERO) {
+				} else if (pesoBoxeador <= PESO_LIGERO) {
 
 					System.out.println("El boxeador pertenece a la categoria Peso Ligero");
 
-				} else if (pesoBoxeador > PESO_LIGERO && pesoBoxeador <= PESO_MEDIANO) {
+				} else if (pesoBoxeador <= PESO_MEDIANO) {
 
 					System.out.println("El boxeador pertenece a la categoria Peso Mediano");
 
