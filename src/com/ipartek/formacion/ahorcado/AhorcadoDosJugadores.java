@@ -14,6 +14,8 @@ public class AhorcadoDosJugadores {
 
 	public static void main(String[] args) {
 
+		//esto tiene que petar
+		
 		final int INTENTOS_TOTALES = 6;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Jugador numero 1, indica la palabra con la que jugar:");
