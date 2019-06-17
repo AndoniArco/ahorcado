@@ -11,6 +11,11 @@ import java.util.Scanner;
 
 public class Ejercicio1 {
 
+	final static int PESO_MOSCA = 52;
+	final static int PESO_PLUMA = 57;
+	final static int PESO_LIGERO = 64;
+	final static int PESO_MEDIANO = 90;
+	
 	/**
 	 * Pedimos al usuario el valor del peso de boxeador y lo ponemos en una
 	 * categoria dependiendo el peso. Controlamos la excepcion de que el dato
@@ -20,6 +25,9 @@ public class Ejercicio1 {
 	 */
 	public static void main(String[] args) {
 
+		
+		
+		
 		Scanner sc = new Scanner(System.in);
 		int pesoBoxeador = 0;
 		boolean fallo = false;
@@ -30,19 +38,19 @@ public class Ejercicio1 {
 				pesoBoxeador = sc.nextInt();
 				if (pesoBoxeador < 0) {
 					throw new Exception();
-				} else if (pesoBoxeador < 52) {
+				} else if (pesoBoxeador < PESO_MOSCA) {
 
 					System.out.println("El boxeador pertenece a la categoria Peso Mosca");
 
-				} else if (pesoBoxeador >= 52 && pesoBoxeador <= 57) {
+				} else if (pesoBoxeador > PESO_MOSCA && pesoBoxeador <= PESO_PLUMA) {
 
 					System.out.println("El boxeador pertenece a la categoria Peso Pluma");
 
-				} else if (pesoBoxeador >= 58 && pesoBoxeador <= 64) {
+				} else if (pesoBoxeador > PESO_PLUMA && pesoBoxeador <= PESO_LIGERO) {
 
 					System.out.println("El boxeador pertenece a la categoria Peso Ligero");
 
-				} else if (pesoBoxeador >= 65 && pesoBoxeador <= 90) {
+				} else if (pesoBoxeador > PESO_LIGERO && pesoBoxeador <= PESO_MEDIANO) {
 
 					System.out.println("El boxeador pertenece a la categoria Peso Mediano");
 
