@@ -33,9 +33,9 @@ public class Ejercicio4 {
 		System.out.println("Introduzca la referencia del tren");
 		tReferencia = sc.nextLine();
 		System.out.println("Introduzca la cantidad de asientos ocupados en el tren");
-		asientosOcupados = sc.nextInt();
+		asientosOcupados = Integer.parseInt(sc.nextLine());
 		System.out.println("Introduzca la cantidad de años en activo del tren");
-		anosActivos = sc.nextInt();
+		anosActivos = Integer.parseInt(sc.nextLine());
 
 		Tren tNuevo = new Tren(tTipo, tReferencia, asientosOcupados, anosActivos);
 

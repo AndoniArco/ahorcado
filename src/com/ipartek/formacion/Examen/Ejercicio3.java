@@ -22,9 +22,14 @@ public class Ejercicio3 {
 
 		while (contador < datos.length) {
 			System.out.println("Introduce los datos");
-			numeroDato = sc.nextInt();
-			datos[contador] = numeroDato;
-			contador++;
+			try {
+				numeroDato = Integer.parseInt(sc.nextLine());
+				datos[contador] = numeroDato;
+				contador++;	
+			} catch (Exception e) {
+				System.out.println("Cuidado! El dato que has introducido no es valido.");
+			}
+			
 		}
 
 		obtenerMultiplos7(datos);
