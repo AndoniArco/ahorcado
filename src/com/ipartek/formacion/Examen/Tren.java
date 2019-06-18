@@ -2,9 +2,9 @@ package com.ipartek.formacion.Examen;
 
 public class Tren {
 
-	private static final int CAPACIDAD_MAXIMA = 400;
-	private static final int EDAD_MAXIMA = 40;
-	
+	public static final int CAPACIDAD_MAXIMA = 400;
+	public static final int EDAD_MAXIMA = 40;
+
 	private String tipo;
 	private String referencia;
 	private int asientosOcupados;
@@ -38,13 +38,31 @@ public class Tren {
 		return anosActivos;
 	}
 
-	//metodos personalizados
-	
+
+	public void setAnosActivos(int anosActivos) {
+		this.anosActivos = anosActivos;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public void setReferencia(String referencia) {
+		this.referencia = referencia;
+	}
+
+	public void setAsientosOcupados(int asientosOcupados) {
+		this.asientosOcupados = asientosOcupados;
+	}
+	// metodos personalizados
+
 	/**
 	 * Segun la casuistica vemos si el tren esta totalmente ocupado o no
+	 * 
 	 * @return boolean true o false
+	 * @see CAPACIDAD_MAXIMA
 	 */
-	
+
 	public boolean trenLleno() {
 
 		boolean lleno = false;
@@ -57,17 +75,22 @@ public class Tren {
 	}
 
 	/**
-	 * Segun la casuistica vemos si el tren sigue en circulacion o por el contrario ya no.
+	 * Segun la casuistica vemos si el tren sigue en circulacion o por el contrario
+	 * ya no.
 	 */
-	
-	public void demasiadoViejo() {
 
+	public boolean demasiadoViejo() {
+		
+		boolean viejo =false;
+		
 		if (this.anosActivos >= EDAD_MAXIMA) {
 			System.out.println("EL TREN SE ENCUENTRA FUERA DE CIRCULACION");
+			viejo = true;
 		} else {
 			System.out.println("EL TREN SE ENCUENTRA EN CIRCULACION");
+			
 		}
-
+		return viejo;
 	}
 
 }

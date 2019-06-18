@@ -1,46 +1,141 @@
 package com.ipartek.formacion.Examen;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
-import java.util.Scanner;
-
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+
+import jdk.nashorn.internal.ir.annotations.Ignore;
 
 public class TrenTest {
 
+	Tren tren;
+	static final String TIPO = "Locomotora";
+	static final String REFERENCIA = "LOC-123";
+	static final int ASIENTOS_OCUPADOS = 5;
+	static final int ANYOS = 3;
+
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}
+
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
+
+	@Before
+	public void setUp() throws Exception {
+		tren = new Tren(TIPO, REFERENCIA , ASIENTOS_OCUPADOS, ANYOS);
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		tren = null;
+	}
+
 	@Test
-	public void test() {
+	public void testTren() {
+		assertEquals( TIPO , tren.getTipo() );
+		assertEquals( REFERENCIA, tren.getReferencia() );
+		assertEquals( ASIENTOS_OCUPADOS, tren.getAsientosOcupados() );
+		assertEquals( ANYOS, tren.getAnosActivo() );
 		
-		Scanner sc = new Scanner(System.in);
-		String tTipo;
-		String tReferencia;
-		int asientosOcupados;
-		int anosActivos;
+		Tren tNull = new Tren( null, null, -5, 0);
+		assertEquals( null , tNull.getTipo() );
+		assertEquals( null, tNull.getReferencia() );
+		assertEquals( -5, tNull.getAsientosOcupados() );
+		assertEquals( 0, tNull.getAnosActivo() );
+	}
 
-		System.out.println("Bienvenido a la creación del tren");
-		System.out.println("A continuación introduzca los datos");
+	@Test
+	public void testGetTipo() {
 
-		System.out.println("Introduzca el tipo del tren");
-		tTipo = sc.nextLine();
-		System.out.println("Introduzca la referencia del tren");
-		tReferencia = sc.nextLine();
-		System.out.println("Introduzca la cantidad de asientos ocupados en el tren");
-		asientosOcupados = Integer.parseInt(sc.nextLine());
-		System.out.println("Introduzca la cantidad de años en activo del tren");
-		anosActivos = Integer.parseInt(sc.nextLine());
+		assertEquals(TIPO, tren.getTipo() );
+		
+	}
 
-		Tren tNuevo = new Tren(tTipo, tReferencia, asientosOcupados, anosActivos);
+	@Ignore
+	public void testSetTipo() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetReferencia() {
+		assertEquals( REFERENCIA,tren.getReferencia());
+	}
+
+	@Ignore
+	public void testSetReferencia() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetAsientosOcupados() {
+		assertEquals(ASIENTOS_OCUPADOS,tren.getAsientosOcupados());
+	}
+
+	@Test
+	public void testSetAsientosOcupados() {
 		
-		sc.close();
+		tren.setAsientosOcupados(-1);
+		assertEquals( -1,tren.getAsientosOcupados());
 		
-		assertEquals(tTipo, tNuevo.getTipo());
-		assertEquals(tReferencia, tNuevo.getReferencia());
-		assertEquals(asientosOcupados, tNuevo.getAsientosOcupados());
-		assertEquals(anosActivos, tNuevo.getAnosActivo());
+		tren.setAsientosOcupados(1);
+		assertEquals( 1,tren.getAsientosOcupados());
 		
+		tren.setAsientosOcupados(Tren.CAPACIDAD_MAXIMA+1);
+		assertEquals( Tren.CAPACIDAD_MAXIMA+1,tren.getAsientosOcupados());
+	}
+
+	@Test
+	public void testGetAnosActivos() {
+		assertEquals(ANYOS, tren.getAnosActivo());
+	}
+
+	@Test
+	public void testSetAnyosActivo() {
+		tren.setAnosActivos(-1);
+		assertEquals( -1,tren.getAnosActivo());
 		
+		tren.setAnosActivos(1);
+		assertEquals( 1,tren.getAnosActivo());
+	}
+
+	@Ignore
+	public void testMostrarDatos() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testEstaLleno() {
+		assertFalse(tren.trenLleno());
+		
+		tren.setAsientosOcupados( Tren.CAPACIDAD_MAXIMA );
+		assertTrue( tren.trenLleno() );
+		
+		tren.setAsientosOcupados( Tren.CAPACIDAD_MAXIMA+1 );
+		assertTrue( tren.trenLleno() );
 		
 		
 	}
 
+	@Test
+	public void testEsViejo() {
+
+		assertFalse( tren.demasiadoViejo() ); // 3 años
+		
+		tren.setAnosActivos( 40 );
+		assertTrue( tren.demasiadoViejo() );
+		
+		tren.setAnosActivos( 41 );
+		assertTrue( tren.demasiadoViejo() );
+		
+		
+	}
 }
