@@ -13,9 +13,12 @@ import java.util.Scanner;
 
 public class Ejercicio3 {
 
+	final static int MAX_NUMEROS = 10;
+	static int[] datos = new int[MAX_NUMEROS];
+	
 	public static void main(String[] args) {
 
-		int[] datos = new int[10];
+		
 		Scanner sc = new Scanner(System.in);
 		int contador = 0;
 		int numeroDato;

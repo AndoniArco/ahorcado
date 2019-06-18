@@ -2,6 +2,9 @@ package com.ipartek.formacion.Examen;
 
 public class Tren {
 
+	private static final int CAPACIDAD_MAXIMA = 400;
+	private static final int EDAD_MAXIMA = 40;
+	
 	private String tipo;
 	private String referencia;
 	private int asientosOcupados;
@@ -46,7 +49,7 @@ public class Tren {
 
 		boolean lleno = false;
 
-		if (this.asientosOcupados >= 400) {
+		if (this.asientosOcupados >= CAPACIDAD_MAXIMA) {
 			lleno = true;
 		}
 
@@ -59,7 +62,7 @@ public class Tren {
 	
 	public void demasiadoViejo() {
 
-		if (this.anosActivos >= 40) {
+		if (this.anosActivos >= EDAD_MAXIMA) {
 			System.out.println("EL TREN SE ENCUENTRA FUERA DE CIRCULACION");
 		} else {
 			System.out.println("EL TREN SE ENCUENTRA EN CIRCULACION");
